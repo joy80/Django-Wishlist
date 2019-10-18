@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h1>Hi {{ user.username }}</h1>
+  <a class="btn btn-outline-info" href="{% url 'wishlist-create' %}">Add New Wish</a><br>
+  	{% if wishlist %}
+	  	{% for wishlist in wishlist %}
+	        <article class="media content-section">
+	          	<div class="media-body">
+	            	<h2><a class="article-title" href="{% url 'wishlist-detail' wishlist.id %}">{{ wishlist.wish }}</a></h2>
+	            	<p>by {{ wishlist.by }}</p>
+	          	</div>
+	        </article>
+	    {% endfor %}
+	{% else %}
+		<h4>You corrently don't have any wishlist</h4>
+	{% endif %}
+{% endblock %}

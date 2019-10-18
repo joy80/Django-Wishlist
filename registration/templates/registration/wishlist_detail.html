@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+  <article class="media content-section">
+    <div class="media-body">
+      <h2 class="article-title">{{ object.wish }}</h2>
+      <div class="article-metadata">
+        <small class="text-muted">by</small>
+      </div>
+      <p class="article-content">{{ object.by }}</p>
+      <div>
+        <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'wishlist-delete' object.id %}">Delete</a>
+      </div>
+    </div>
+  </article>
+{% endblock content %}
